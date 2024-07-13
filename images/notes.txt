@@ -1,0 +1,198 @@
+
+ADD BUTTON AND INPUT TAG
+
+<!-- Create an input element with type="text" and id="input-el" -->
+        <!-- Create a SAVE INPUT button with id="input-btn" -->
+
+
+STYLE THE BUTTON AND INPUT TAG 
+
+width incluye el valor del padding
+para que no ssea así usar la propiedad 
+box-sizing:border-box
+
+MAKE THE INPUT BUTTON WORK WITH ONCLICK
+
+// Log out "Button clicked!" when the user clicks the "SAVE INPUT" button
+
+
+REFACTOR TO ADDEVENTLISTENER
+
+<div id="box">Open the box!</div>
+
+        let box = document.getElementById('box')
+// 2. Add a click event listener to the box 
+box.addEventListener('click', function(){
+    console.log('"I want to open the box!"')
+})
+
+CREATE THE MYLEADS ARRAY AND INPUTEL
+
+// Create two variables:
+// myLeads -> should be assigned to an empty array
+// inputEl -> should be assigned to the text input field
+
+
+WHEN TO USE LET AND CONST
+
+// If possible, use const. If not, use let.
+
+// Which variables below should be changed from let to const?
+
+// The customer wants to order some stuff. Here are the details:
+let basePrice = 520
+let discount = 120
+let shippingCost = 12
+let shippingTime = "5-12 days"
+
+// Whops! Turns out the shipping will be a bit more complex
+shippingCost = 15
+shippingTime = "7-14 days"
+
+// Calculating the full price
+let fullPrice = basePrice - discount + shippingCost
+
+// Finally, notifying the customer
+console.log("Total cost: " + fullPrice + ". It will arrive in " + shippingTime)
+
+
+PUSH TO THE MYLEADS ARRAY
+
+// Push the value from the inputEl into the myLeads array 
+    // instead of the hard-coded "www.awesomeleads.com" value
+    // Google -> "get value from input field javascript"
+
+
+    let myLeads = []
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+
+inputBtn.addEventListener("click", function() {
+    // Push the value from the inputEl into the myLeads array 
+    // instead of the hard-coded "www.awesomeleads.com" value
+    // Google -> "get value from input field javascript"
+    myLeads.push(inputEl.value)
+    console.log(myLeads)
+})
+
+
+USE A FOR LOOP TO LOG OUT myLeads
+let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    console.log(myLeads)
+})
+
+
+// Log out the items in the myLeads array using a for loop 
+
+for(let i=0 ; i<myLeads.length;i++){
+    console.log(myLeads[i])
+}
+
+CREATE THE UNORDERED LIST
+
+ <!-- 1. Create an unordered list element (<ul>) with id="ul-el" -->
+ // 2. Grab the unordered list and store it in a const variable called ulEl
+
+ RENDER THE LEADS IN THE UNORDERED LIST
+ // Render the leads in the unordered list using ulEl.textContent
+
+
+
+
+ HOW TO RENDER <LI> ELEMENTS WITH INNERHTML
+
+
+
+ let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+const ulEl = document.getElementById("ul-el")
+
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    console.log(myLeads)
+})
+
+
+for (let i = 0; i < myLeads.length; i++) {
+    ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+}
+
+WRITE YOUR FIRST INNERHTML
+
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="container">
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
+
+
+// Use .innerHTML to render a Buy! button inside the div container
+
+const container = document.getElementById("container")
+
+container.innerHTML = "<button>Buy!</button>"
+
+SECOND PRACTICE CHANGE TEXT BUTTON
+
+const container = document.getElementById("container")
+
+container.innerHTML = "<button onclick='buy()'>Buy!</button>"
+
+// When clicked, render a paragraph under the button (in the container)
+// that says "Thank you for buying!"
+
+function buy(){
+    container.innerHTML += "<p>Thank you for buying!</p>"
+}
+
+// Replace .textContent with .innerHTML and use <li> tags
+for (let i = 0; i < myLeads.length; i++) {
+    ulEl.innerHTML += "<li>" + myLeads[i] + "</li> "
+}
+USE A createElement() AND append  insted of innerHTML
+/ Let's try a different method!
+for (let i = 0; i < myLeads.length; i++) {
+    // ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    // set text content
+    // append to ul
+    const li = document.createElement("li")
+    li.textContent = myLeads[i]
+    ulEl.append(li)
+}
+
+
+IMPROVING THE PERFORMANCE OF APP
+
+
+
+let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+const ulEl = document.getElementById("ul-el")
+
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    console.log(myLeads)
+})
+
+// 1. Create a variable, listItems, to hold all the HTML for the list items
+// Assign it to an empty string to begin with
+let listItems = ""
+for (let i = 0; i < myLeads.length; i++) {
+    // 2. Add the item to the listItems variable instead of the ulEl.innerHTML
+    listItems += "<li>" + myLeads[i] + "</li>"
+}
+// 3. Render the listItems inside the unordered list using ulEl.innerHTML
+ulEl.innerHTML = listItems
