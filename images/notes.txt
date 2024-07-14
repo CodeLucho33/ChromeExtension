@@ -213,3 +213,166 @@ unction renderLeads() {
 }
 
 TEMPLETES STRINGS
+
+`${varialbe}`
+
+WHAT IS LOCALSTORAGE ?
+
+// 1. Save a key-value pair in localStorage
+// 2. Refresh the page. Get the value and log it to the console
+// 3. Clear localStorage
+
+// HINTS:
+// localStorage.setItem(key, value)
+// localStorage.getItem(key)
+// localStorage.clear()
+// PS: both key and value need to be strings
+
+STORING ARRAYS IN LOCALSTORAGE
+
+let myLeads = `["www.awesomelead.com"]`
+
+// 1. Turn the myLeads string into an array
+myLeads = JSON.parse(myLeads)
+// 2. Push a new value to the array
+myLeads.push("www.lead2.com")
+// 3. Turn the array into a string again
+myLeads = JSON.stringify(myLeads)
+// 4. Console.log the string using typeof to verify that it's a string
+console.log(typeof myLeads)
+
+
+SAVE THE LeADS TO LOCALSTORAGE
+
+let myLeads = []
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+const ulEl = document.getElementById("ul-el")
+
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    inputEl.value = ""
+    // Save the myLeads array to localStorage 
+    // PS: remember JSON.stringify()
+    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+    renderLeads()
+    
+    // To verify that it works:
+    console.log( localStorage.getItem("myLeads") )
+})
+
+
+GET THE LEADS FROM LOCALSTORAGE
+
+// Get the leads from the localStorage - PS: JSON.parse()
+// Store it in a variable, leadsFromLocalStorage
+// Log out the variable
+
+localStorage.clear()
+let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
+
+console.log(leadsFromLocalStorage)
+
+TRUTHY AN FALSY VALUES
+
+// truthy
+// falsy
+
+// false
+// 0
+// ""
+// null -> how you as a developer signalize emptiness
+// undefined -> how JavaScript signalizes emptiness
+// NaN
+
+
+console.log(  Boolean("")   ) // false
+console.log(  Boolean("0")  ) // true
+console.log(  Boolean(100)  ) // true
+console.log(  Boolean(null) ) // false
+console.log(  Boolean([0])  ) // true
+console.log(  Boolean(-0)   ) // false
+
+CHECKING LOCALSTORAGE BEFORE RENDEREING
+// 1. Check if leadsFromLocalStorage is truthy
+// 2. If so, set myLeads to its value and call renderLeads()
+
+MAKE THE DELETE BUTTON WORK
+
+// 1. Store the delete button in a deleteBtn variable
+// 2. Listen for double clicks on the delete button (google it!)
+// 3. When clicked, clear localStorage, myLeads, and the DOM
+
+HOW FUNCTION PARAMETES CAN IMPROVE OUR CODE
+
+const welcomeEl = document.getElementById("welcome-el")
+
+function greetUser() {
+    welcomeEl.textContent = "Welcome back, Per Harald Borgen 👋"    
+}
+
+greetUser()
+
+
+const welcomeEl = document.getElementById("welcome-el")
+
+// Give the function a parameter, greeting, that replaces "Welcome back"
+function greetUser(firstWords) {
+    welcomeEl.textContent = `${firstWords}, Per Harald Borgen 👋` 
+}
+
+greetUser("Bonjuya")
+
+const welcomeEl = document.getElementById("welcome-el")
+
+function greetUser(greeting, name) {
+    // Rewrite the expression using template literals
+    welcomeEl.textContent = `${greeting} ,${name}`
+}
+
+greetUser("Howdy", "OP")
+
+NUMBERS AS FUNCTION PARAMETERS
+
+
+// Create a function, add(), that adds two numbers together and returns the sum
+
+function add(n1,n2){
+    return n1+ n2
+}
+
+console.log( add(3, 4)   ) // should log 7
+console.log( add(9, 102) ) // should log 111
+
+// What are greeting and name? parameters
+// What are "Howdy" and "James"? arguments
+// What are num1 and num2? parameters
+// What are 3 and 4? arguments
+
+
+//.                parameters
+function greetUser(greeting, name) { 
+    welcomeEl.textContent = `${greeting}, ${name} 👋`
+}
+
+//.        arguments
+let hi = "Howdy"
+greetUser(hi, "James")
+
+
+function add(num1, num2) {
+    return num1 + num2
+}
+
+add(3, 4)
+
+ARRAYS AS PARAMETERS
+/ Create a function, getFirst(arr), that returns the first item in the array
+function getFirst(anything){
+    return anything[0]
+}
+
+let yolanda =["xAx","b"]
+
+console.log(getFirst(yolanda))
+// Call it with an array as an argument to verify that it works
