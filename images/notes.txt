@@ -7,8 +7,8 @@ ADD BUTTON AND INPUT TAG
 
 STYLE THE BUTTON AND INPUT TAG 
 
-width incluye el valor del padding
-para que no ssea así usar la propiedad 
+width incluye el valor del padding.
+Para que no ssea así usar la propiedad 
 box-sizing:border-box
 
 MAKE THE INPUT BUTTON WORK WITH ONCLICK
@@ -16,7 +16,7 @@ MAKE THE INPUT BUTTON WORK WITH ONCLICK
 // Log out "Button clicked!" when the user clicks the "SAVE INPUT" button
 
 
-REFACTOR TO ADDEVENTLISTENER
+REFACTOR TO ADDEVENTLISTENER Ejemplo
 
 <div id="box">Open the box!</div>
 
@@ -196,3 +196,20 @@ for (let i = 0; i < myLeads.length; i++) {
 }
 // 3. Render the listItems inside the unordered list using ulEl.innerHTML
 ulEl.innerHTML = listItems
+
+
+
+ADD THE <a>tag
+
+unction renderLeads() {
+    let listItems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+        // Wrap the lead in an anchor tag (<a>) inside the <li>
+        // Can you make the link open in a new tab?
+        listItems += "<li><a href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+        console.log(listItems)
+    }
+    ulEl.innerHTML = listItems  
+}
+
+TEMPLETES STRINGS
