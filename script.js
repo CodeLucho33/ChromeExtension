@@ -1,3 +1,16 @@
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"
+
+
+
+const firebaseConfig = {
+    databaseURL: "https://lead-treacke-app-default-rtdb.firebaseio.com/"
+}
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app)
+console.log(database)
+
 let myLeads = []
 const inputEl = document.getElementById('input-el')
 const inputBtn = document.getElementById('input-btn')
